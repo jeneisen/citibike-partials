@@ -1,0 +1,30 @@
+<h1><%= @station.name %></h1>
+<hr>
+<h3>MAP ROUTE</h3>
+<div id="map" style="height: 400px"></div>
+<script type="text/javascript" charset="utf-8">
+  var map = L.map('map').setView([40.7142, -74.0064], 13);
+  L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Stamen Toner'}, {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+  }).addTo(map);
+
+L.marker([<%= @station.lat/1000000.to_f %>, <%= @station.lng/1000000.to_f %>]).addTo(map);
+
+</script>
+
+
+<ul>
+<li>Station Number: <%= @station.number %></li>
+<li>Total Bikes: <%= @station.bikes %></li>
+<li>Free Bikes: <%= @station.free %></li>
+<li>Address: <%= @station.address %></li>
+<li>Latitude: <%= @station.lat %></li>
+<li>Longitude: <%= @station.lng %></li>
+</ul>
+<hr>
+<a href="/stations/edit/<%= @station.id %>">EDIT</a><br>
+<a href="/stations/delete/<%= @station.id%>">DELETE</a><br>
+<a href="/stations">Back to Index</a>
+
+

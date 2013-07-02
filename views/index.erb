@@ -1,0 +1,27 @@
+<%= partial(:header) %>
+<!-- <h3>Citibike Stations</h3> -->
+<!-- <a href="/stations/new">Create a new station</a>
+<hr>
+<div id="map" style="height: 400px"></div>
+<script type="text/javascript" charset="utf-8">
+  var map = L.map('map').setView([40.7142, -74.0064], 13);
+  L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Stamen Toner'}, {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+  }).addTo(map);
+
+<% @station.each do |station| %>
+L.marker([<%= station[:lat]/1000000.to_f %>, <%= station[:lng]/1000000.to_f %>]).addTo(map);
+<%end%>
+
+</script>
+<br>
+<% @station.each do |station| %>
+<ul>
+<li>Station: <%= station[:id] %></li>
+<li><a href="/stations/<%= station[:id] %>"><%= station[:name] %></a></li>
+<li><a href="/stations/edit/<%= station[:id] %>">EDIT</a></li>
+<li><a href="/stations/delete/<%= station[:id] %>">DELETE</a></li>
+</ul>
+<hr>
+<%end%> -->
